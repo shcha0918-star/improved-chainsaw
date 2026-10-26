@@ -7,6 +7,11 @@
 <meta name="description" content="등하원·기본돌봄·놀이돌봄까지. 검증된 동네 돌봄 히어로를 앱에서 바로 만나보세요. 첫 가입 무료체험 + 패키지 할인 + 돌봄 체크리스트 무료 제공.">
 <meta property="og:title" content="이웃집 케어 히어로 - 첫 가입 무료체험">
 <meta property="og:description" content="검증된 동네 히어로가 아이를 돌봐드려요. 지금 가입하면 무료체험!">
+<!-- Amplitude (프로젝트 ID 887074) - API 키는 공개용. 비밀 키는 .env 에만 보관 -->
+<script src="https://cdn.amplitude.com/script/52b45cefc4ada3e364089bf8c92fa97b.js"></script>
+<script>
+  window.amplitude && window.amplitude.init("52b45cefc4ada3e364089bf8c92fa97b", { fetchRemoteConfig: true, autocapture: true });
+</script>
 <style>
 :root{
   --brand:#FF7A29; --brand-d:#E8620F; --brand-l:#FFF1E6;
@@ -451,6 +456,7 @@ function track(name, data){
   try{
     if(window.gtag) gtag("event", name, data || {});
     if(window.fbq) fbq("trackCustom", name, data || {});
+    if(window.amplitude) amplitude.track(name, data || {});
   }catch(e){}
 }
 document.addEventListener("click", function(e){
