@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이웃집 케어 히어로 | 갑자기 급한 돌봄, 동네 히어로가 달려갑니다</title>
+<meta name="description" content="등하원·기본돌봄·놀이돌봄까지. 검증된 동네 돌봄 히어로를 앱에서 바로 만나보세요. 첫 가입 무료체험 + 패키지 할인 + 돌봄 체크리스트 무료 제공.">
+<meta property="og:title" content="이웃집 케어 히어로 - 첫 가입 무료체험">
+<meta property="og:description" content="검증된 동네 히어로가 아이를 돌봐드려요. 지금 가입하면 무료체험!">
+<style>
+:root{
+  --brand:#FF7A29; --brand-d:#E8620F; --brand-l:#FFF1E6;
+  --ink:#1F2A44; --ink2:#4B5675; --line:#E7E9F0; --bg:#FFFDFB; --card:#FFFFFF;
+  --green:#18A957; --green-l:#E8F8EF; --sky:#EAF3FF;
+  --r:18px; --shadow:0 6px 24px rgba(31,42,68,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:84px;word-break:keep-all}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;color:var(--brand-d);background:var(--brand-l);padding:4px 12px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(28px,6.4vw,46px);line-height:1.28;font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(23px,4.8vw,32px);line-height:1.35;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.lead{color:var(--ink2);font-size:16px}
+.center{text-align:center}
+.hl{color:var(--brand)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:14px;padding:16px 26px;font-size:17px;transition:transform .15s,background .15s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 8px 20px rgba(255,122,41,.35)}
+.btn-primary:hover{background:var(--brand-d)}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-block{width:100%}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:50;background:rgba(255,253,251,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-weight:800;font-size:18px;display:flex;align-items:center;gap:8px}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--brand);color:#fff;display:grid;place-items:center;font-style:normal;font-size:16px}
+.top .btn{padding:8px 16px;font-size:14px;border-radius:10px;transition:opacity .2s,visibility .2s}
+.top.scrolled .btn{opacity:0;visibility:hidden;pointer-events:none}
+.index{border-top:1px solid var(--line)}
+.index .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none}
+.index .wrap::-webkit-scrollbar{display:none}
+.index a{flex:none;font-size:14px;font-weight:700;color:var(--ink2);padding:6px 14px;border-radius:99px;transition:background .15s,color .15s}
+.index a.on{background:var(--brand);color:#fff}
+section[id]{scroll-margin-top:110px}
+
+/* hero */
+.hero{padding:36px 0 48px;background:linear-gradient(180deg,#FFF3E8 0%,var(--bg) 100%)}
+.hero-grid{display:grid;gap:28px;align-items:center}
+.src-badge{display:none;font-size:13px;font-weight:700;color:var(--green);background:var(--green-l);padding:5px 12px;border-radius:99px;margin-bottom:12px}
+.hero p.lead{margin:16px 0 22px;font-size:17px}
+.hero-cta{display:flex;flex-direction:column;gap:10px;max-width:420px}
+.hero-note{font-size:13px;color:var(--ink2);margin-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);padding:6px 12px;border-radius:99px}
+.phone{justify-self:center;width:min(300px,78vw);background:#fff;border-radius:34px;border:8px solid var(--ink);box-shadow:var(--shadow);padding:18px 14px}
+.phone .row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:14px;background:var(--brand-l);margin-bottom:10px;font-size:14px}
+.phone .row.g{background:var(--green-l)} .phone .row.b{background:var(--sky)}
+.phone .row b{display:block;font-size:14px}
+.phone .row span{font-size:12px;color:var(--ink2)}
+.ico{font-size:26px}
+.phone .match{margin-top:8px;text-align:center;font-size:13px;font-weight:700;color:#fff;background:var(--brand);padding:11px;border-radius:12px}
+
+/* pain */
+.pain{background:#fff}
+.pain-list{display:grid;gap:12px;margin-top:24px}
+.pain-item{display:flex;gap:12px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;font-weight:600}
+.pain-item span{font-size:22px}
+.pain-sol{margin-top:26px;background:var(--ink);color:#fff;border-radius:var(--r);padding:22px;text-align:center;font-size:18px;font-weight:700}
+.pain-sol em{font-style:normal;color:#FFB27C}
+
+/* steps */
+.steps{display:grid;gap:14px;margin-top:26px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;position:relative;box-shadow:var(--shadow)}
+.step::before{counter-increment:s;content:counter(s);position:absolute;top:-12px;left:18px;background:var(--brand);color:#fff;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px}
+.step h3{font-size:18px;margin-bottom:4px}
+.step p{color:var(--ink2);font-size:15px}
+.step small{display:inline-block;margin-top:8px;color:var(--green);font-weight:700;font-size:13px}
+
+/* benefits */
+.benefit{background:var(--brand-l)}
+.ben-grid{display:grid;gap:14px;margin-top:26px}
+.ben{background:#fff;border-radius:var(--r);padding:22px;box-shadow:var(--shadow)}
+.ben .tag{font-size:12px;font-weight:800;color:#fff;background:var(--brand);padding:3px 10px;border-radius:99px}
+.ben h3{margin:10px 0 4px;font-size:19px}
+.ben p{color:var(--ink2);font-size:15px}
+
+/* packages */
+.pkg-grid{display:grid;gap:16px;margin-top:26px}
+.pkg{background:#fff;border:2px solid var(--line);border-radius:22px;padding:24px;position:relative}
+.pkg.best{border-color:var(--brand);box-shadow:0 10px 30px rgba(255,122,41,.18)}
+.pkg .ribbon{position:absolute;top:-13px;right:20px;background:var(--brand);color:#fff;font-size:12px;font-weight:800;padding:4px 12px;border-radius:99px}
+.pkg h3{font-size:21px}
+.pkg .sub{color:var(--ink2);font-size:14px;margin-bottom:14px}
+.pkg ul{list-style:none;margin:14px 0 18px}
+.pkg li{padding:5px 0 5px 26px;position:relative;font-size:15px}
+.pkg li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price .off{color:var(--brand);font-weight:800;font-size:22px}
+.price .now{font-size:26px;font-weight:800}
+.price .was{color:#9AA1B5;text-decoration:line-through;font-size:15px}
+.fine{font-size:12.5px;color:#7B829A;margin-top:14px}
+
+/* checklist */
+.check{background:var(--sky)}
+.check-box{background:#fff;border-radius:22px;padding:24px;margin-top:24px;box-shadow:var(--shadow)}
+.check-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:700}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.bar>i{display:block;height:100%;width:0;background:var(--green);transition:width .3s}
+.ck{display:flex;gap:12px;align-items:flex-start;padding:12px 4px;border-bottom:1px solid var(--line);cursor:pointer;font-size:15px}
+.ck:last-of-type{border-bottom:0}
+.ck input{width:22px;height:22px;accent-color:var(--brand);flex:none;margin-top:2px}
+.ck span b{display:block}
+.ck span small{color:var(--ink2)}
+.check-result{display:none;margin-top:16px;padding:16px;border-radius:14px;background:var(--brand-l);font-weight:600}
+.check-result.show{display:block}
+
+/* trust */
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.tr{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px 14px;text-align:center}
+.tr .ico{display:block;margin-bottom:6px}
+.tr b{display:block;font-size:15px}
+.tr span{font-size:13px;color:var(--ink2)}
+
+/* reviews */
+.rev{background:#fff}
+.rev-grid{display:grid;gap:14px;margin-top:24px}
+.rv{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.stars{color:#FFB400;letter-spacing:2px}
+.rv p{margin:6px 0 8px;font-size:15px}
+.rv small{color:var(--ink2)}
+.coupon{margin-top:26px;border-radius:22px;padding:24px;background:linear-gradient(135deg,#FF7A29,#FF9A4D);color:#fff}
+.coupon h3{font-size:20px;margin-bottom:4px}
+.dots{display:flex;gap:8px;margin:16px 0 10px}
+.dots i{flex:1;height:36px;border-radius:10px;background:rgba(255,255,255,.28);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:14px}
+.dots i.on{background:#fff;color:var(--brand-d)}
+.coupon small{opacity:.95}
+
+/* faq */
+details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:10px}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"＋";color:var(--brand);font-weight:800}
+details[open] summary::after{content:"－"}
+details p{margin-top:10px;color:var(--ink2);font-size:15px}
+
+/* final */
+.final{background:var(--ink);color:#fff;text-align:center}
+.final .lead{color:#C7CDE0;margin:8px 0 22px}
+.final .btn-primary{max-width:380px;width:100%}
+.stores{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.stores a{background:#fff;color:var(--ink);font-weight:700;font-size:14px;padding:10px 18px;border-radius:12px}
+footer{background:#161E33;color:#8E97B3;font-size:12.5px;padding:28px 0 40px;line-height:1.8}
+
+/* sticky bottom CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -6px 20px rgba(31,42,68,.08);transform:translateY(0);transition:transform .25s}
+.sticky .wrap{display:flex;align-items:center;gap:12px;padding:0}
+.sticky .msg{flex:1;font-size:13px;line-height:1.35;font-weight:700}
+.sticky .msg span{color:var(--brand)}
+.sticky .btn{padding:13px 20px;font-size:15px;white-space:nowrap}
+
+@media(min-width:760px){
+  section{padding:80px 0}
+  .hero-grid{grid-template-columns:1.2fr .8fr}
+  .ben-grid{grid-template-columns:1fr 1fr}
+  .pkg-grid,.rev-grid,.steps{grid-template-columns:repeat(3,1fr)}
+  .pkg-grid{grid-template-columns:1fr 1fr}
+  .pain-list{grid-template-columns:1fr 1fr}
+  .trust-grid{grid-template-columns:repeat(4,1fr)}
+  .hero-cta{flex-direction:row;max-width:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 1. 상단바 -->
+<header class="top">
+  <div class="wrap">
+    <a href="#" class="logo"><i>🦸</i>이웃집 케어 히어로</a>
+    <a href="#download" class="btn btn-primary js-cta" data-pos="top">무료체험 신청</a>
+  </div>
+  <nav class="index" aria-label="페이지 목차">
+    <div class="wrap">
+      <a href="#how">이용방법</a>
+      <a href="#benefit">혜택</a>
+      <a href="#package">패키지</a>
+      <a href="#checklist">체크리스트</a>
+      <a href="#review">후기·쿠폰</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- 2. 히어로 -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="src-badge" id="srcBadge"></div>
+      <span class="eyebrow">검증된 동네 이웃 돌봄</span>
+      <h1>갑자기 급한 돌봄,<br><span class="hl">이웃집 히어로</span>가<br>달려갑니다</h1>
+      <p class="lead">등하원부터 기본돌봄, 놀이돌봄까지.<br>가입 30초, <b>첫 돌봄 무료체험</b>으로 먼저 만나보세요.</p>
+      <div class="hero-cta">
+        <a href="#download" class="btn btn-primary js-cta" data-pos="hero">🎁 첫 가입 무료체험 신청하기</a>
+        <a href="#checklist" class="btn btn-ghost" data-track="hero_checklist">돌봄 체크리스트 보기</a>
+      </div>
+      <p class="hero-note">카드 등록 없이 시작 · 마음에 안 들면 언제든 중단</p>
+      <div class="chips">
+        <span class="chip">✅ 신원·경력 확인</span>
+        <span class="chip">🏠 내 동네 히어로</span>
+        <span class="chip">⏰ 당일 돌봄 가능</span>
+      </div>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="row"><span class="ico">🎒</span><div><b>등하원 돌봄</b><span>오늘 15:30 · 2건 매칭 가능</span></div></div>
+      <div class="row g"><span class="ico">🧸</span><div><b>히어로 놀이 돌봄</b><span>역할놀이·미술·야외놀이</span></div></div>
+      <div class="row b"><span class="ico">🍙</span><div><b>기본 돌봄</b><span>간식·숙제 확인·안전 케어</span></div></div>
+      <div class="match">우리 동네 히어로 확인하기 →</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 공감(문제) -->
+<section class="pain">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">이런 적 있으셨죠?</span>
+      <h2>일도, 아이도 포기할 수 없는<br>부모님의 하루</h2>
+    </div>
+    <div class="pain-list">
+      <div class="pain-item"><span>😥</span>갑작스러운 야근, 하원 시간에 맞출 수가 없어요</div>
+      <div class="pain-item"><span>🤒</span>아이가 아픈데 연차도 이미 다 썼어요</div>
+      <div class="pain-item"><span>🤔</span>모르는 사람에게 아이를 맡기는 게 불안해요</div>
+      <div class="pain-item"><span>💸</span>학원·시터 비용이 너무 부담돼요</div>
+    </div>
+    <div class="pain-sol">그래서 만들었어요.<br><em>믿을 수 있는 동네 이웃 히어로</em>가 필요할 때 바로 오는 돌봄</div>
+  </div>
+</section>
+
+<!-- 4. 이용 방법 -->
+<section id="how">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">가입도 이용도 간단해요</span>
+      <h2>3단계면 오늘 돌봄 예약 끝</h2>
+      <p class="lead">복잡한 서류 없이, 앱 하나로 시작합니다.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>앱 설치 &amp; 간편가입</h3><p>카카오·네이버 계정으로 30초면 가입 완료.</p><small>⏱ 평균 30초</small></div>
+      <div class="step"><h3>우리 동네 히어로 선택</h3><p>후기·경력·프로필을 보고 마음에 드는 히어로를 골라요.</p><small>✔ 신원 확인 완료</small></div>
+      <div class="step"><h3>무료체험 예약</h3><p>원하는 날짜와 시간을 정하고 첫 돌봄을 체험해요.</p><small>🎁 첫 가입 무료체험</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 혜택 요약 -->
+<section class="benefit" id="benefit">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">지금 가입하면</span>
+      <h2>신규 가입 부모님 전용 혜택 4가지</h2>
+    </div>
+    <div class="ben-grid">
+      <div class="ben"><span class="tag">BENEFIT 1</span><h3>🎁 첫 가입 무료체험</h3><p>처음 이용하는 분께 첫 돌봄을 무료로 체험해 드려요.</p></div>
+      <div class="ben"><span class="tag">BENEFIT 2</span><h3>🏷️ 패키지 할인</h3><p>등하원·기본돌봄 패키지, 히어로 놀이 패키지를 할인가로 만나보세요.</p></div>
+      <div class="ben"><span class="tag">BENEFIT 3</span><h3>📋 돌봄 체크리스트</h3><p>돌봄 맡기기 전 꼭 확인해야 할 항목을 무료로 드려요.</p></div>
+      <div class="ben"><span class="tag">BENEFIT 4</span><h3>⭐ 후기 쿠폰</h3><p>후기를 5회 이상 작성하면 다음 돌봄에 쓸 수 있는 쿠폰을 드려요.</p></div>
+    </div>
+    <div class="center" style="margin-top:28px"><a href="#download" class="btn btn-primary js-cta" data-pos="benefit">혜택 받고 신청하기</a></div>
+  </div>
+</section>
+
+<!-- 6. 패키지 -->
+<section id="package">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">패키지 할인</span>
+      <h2>자주 쓸수록 더 아끼는 돌봄 패키지</h2>
+      <p class="lead">우리 가족 생활 패턴에 맞는 패키지를 골라보세요.</p>
+    </div>
+    <div class="pkg-grid">
+      <article class="pkg best">
+        <span class="ribbon">워킹맘·대디 인기</span>
+        <h3>🎒 등하원 + 기본돌봄 패키지</h3>
+        <p class="sub">맞벌이 가정을 위한 매일의 돌봄 · 10회권 (회당 2시간)</p>
+        <div class="price"><span class="off">20%↓</span><span class="was">300,000원</span><span class="now">240,000원</span></div>
+        <p class="fine" style="margin:4px 0 0">1회 24,000원 (시간당 12,000원)</p>
+        <ul>
+          <li>등·하원 동행 (학교·학원·어린이집)</li>
+          <li>간식·식사 챙김 및 숙제 확인</li>
+          <li>귀가 후 안전 케어 &amp; 보호자 알림</li>
+          <li>주 3회 이상 이용 시 추가 혜택</li>
+        </ul>
+        <a href="#download" class="btn btn-primary btn-block js-cta" data-pos="pkg_care">패키지 신청하기</a>
+      </article>
+      <article class="pkg">
+        <h3>🦸 히어로 놀이 패키지</h3>
+        <p class="sub">돌봄 + 놀이로 하루가 즐거운 시간 · 5회권 (회당 2시간)</p>
+        <div class="price"><span class="off">15%↓</span><span class="was">180,000원</span><span class="now">153,000원</span></div>
+        <p class="fine" style="margin:4px 0 0">1회 30,600원 (시간당 15,300원)</p>
+        <ul>
+          <li>역할놀이·미술·만들기·보드게임</li>
+          <li>공원·놀이터 야외 놀이 동행</li>
+          <li>연령별 맞춤 놀이 프로그램</li>
+          <li>놀이 후 활동 리포트 제공</li>
+        </ul>
+        <a href="#download" class="btn btn-ghost btn-block js-cta" data-pos="pkg_play">놀이 패키지 보기</a>
+      </article>
+    </div>
+    <p class="fine">※ 첫 가입 무료체험 1회는 별도 제공됩니다. 지역·시간대·아이 수에 따라 요금이 달라질 수 있으며, 정확한 금액은 앱에서 확인하실 수 있어요.</p>
+  </div>
+</section>
+
+<!-- 7. 체크리스트 -->
+<section class="check" id="checklist">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">무료 정보 · 체험해보세요</span>
+      <h2>돌봄 맡기기 전, 이것만은 꼭!<br>우리 가족 돌봄 체크리스트</h2>
+      <p class="lead">직접 체크해 보세요. 부족한 부분은 히어로가 채워드려요.</p>
+    </div>
+    <div class="check-box">
+      <div class="check-top"><span>준비도 체크</span><span id="ckCount">0 / 6</span></div>
+      <div class="bar"><i id="ckBar"></i></div>
+      <label class="ck"><input type="checkbox"><span><b>돌봄 시간대와 요일을 정했나요?</b><small>등하원 / 방과 후 / 긴급 대체 구분하기</small></span></label>
+      <label class="ck"><input type="checkbox"><span><b>돌보미의 신원·경력을 확인했나요?</b><small>신원 인증, 범죄경력, 후기 확인</small></span></label>
+      <label class="ck"><input type="checkbox"><span><b>아이의 알레르기·복약 정보를 정리했나요?</b><small>음식 알레르기, 상비약, 응급 연락처</small></span></label>
+      <label class="ck"><input type="checkbox"><span><b>사전 만남(인사) 시간을 가졌나요?</b><small>아이가 낯을 가리면 첫 만남은 짧게</small></span></label>
+      <label class="ck"><input type="checkbox"><span><b>집안 안전 점검을 마쳤나요?</b><small>모서리·약품·세제 보관, 귀가 규칙 공유</small></span></label>
+      <label class="ck"><input type="checkbox"><span><b>돌봄 중 소통 방법을 정했나요?</b><small>실시간 알림, 사진 공유, 비상 시 연락 순서</small></span></label>
+      <div class="check-result" id="ckResult"></div>
+      <a href="#download" class="btn btn-primary btn-block js-cta" style="margin-top:18px" data-pos="checklist">체크리스트 받고 무료체험 신청</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 신뢰/안전 -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">안심하고 맡기세요</span>
+      <h2>히어로는 이렇게 검증해요</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="tr"><span class="ico">🪪</span><b>신원 인증</b><span>본인 인증 및 서류 확인</span></div>
+      <div class="tr"><span class="ico">🛡️</span><b>경력·교육 확인</b><span>돌봄 경력 및 안전 교육</span></div>
+      <div class="tr"><span class="ico">📍</span><b>우리 동네 매칭</b><span>가까운 이웃 위주 추천</span></div>
+      <div class="tr"><span class="ico">⭐</span><b>실제 후기</b><span>이용 부모님의 후기 공개</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 후기 + 쿠폰 -->
+<section class="rev" id="review">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow">이용 후기</span>
+      <h2>먼저 써본 부모님들의 이야기</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rv"><div class="stars">★★★★★</div><p>“야근이 잦은데 하원을 맡길 수 있어서 마음이 한결 편해졌어요.”</p><small>30대 워킹맘 · 후기 예시</small></div>
+      <div class="rv"><div class="stars">★★★★★</div><p>“놀이 패키지 덕분에 아이가 히어로 선생님을 기다려요.”</p><small>40대 워킹대디 · 후기 예시</small></div>
+      <div class="rv"><div class="stars">★★★★☆</div><p>“체크리스트대로 준비하니 첫 만남도 걱정 없이 지나갔어요.”</p><small>30대 맘 · 후기 예시</small></div>
+    </div>
+    <div class="coupon">
+      <h3>🎟️ 후기 5회 작성하면 쿠폰이 팡!</h3>
+      <p>돌봄을 이용하고 후기를 남길 때마다 도장이 하나씩 찍혀요.</p>
+      <div class="dots" id="dots"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i></div>
+      <small>아래 버튼을 눌러 적립 과정을 미리 체험해 보세요.</small><br>
+      <button class="btn btn-ghost" style="margin-top:12px;padding:10px 18px;font-size:14px;color:var(--ink)" id="stampBtn">도장 찍어보기</button>
+    </div>
+    <p class="fine">※ 위 후기는 예시 문구입니다. 실제 이용 후기로 교체해 주세요.</p>
+  </div>
+</section>
+
+<!-- 10. FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="center"><h2>가입 전 자주 묻는 질문</h2></div>
+    <details><summary>정말 무료로 체험할 수 있나요?</summary><p>첫 가입 고객에 한해 첫 돌봄을 무료로 체험하실 수 있어요. 자세한 조건은 앱 이벤트 페이지에서 확인해 주세요.</p></details>
+    <details><summary>가입할 때 카드 등록이 필요한가요?</summary><p>무료체험 시작에 카드 등록은 필요하지 않아요. 간편 로그인으로 바로 시작하세요.</p></details>
+    <details><summary>히어로는 어떻게 검증되나요?</summary><p>본인 인증, 경력 확인, 안전 교육 이수를 거친 분만 활동할 수 있고, 이용 후기가 공개돼요.</p></details>
+    <details><summary>갑자기 당일에도 이용할 수 있나요?</summary><p>동네에 가능한 히어로가 있다면 당일 돌봄도 신청하실 수 있어요. 앱에서 실시간으로 확인됩니다.</p></details>
+    <details><summary>패키지 할인은 어떻게 적용되나요?</summary><p>앱에서 패키지를 선택하면 할인가가 자동 적용돼요. 이용 횟수에 따라 추가 혜택이 있을 수 있어요.</p></details>
+    <details><summary>후기 쿠폰은 언제 받나요?</summary><p>후기를 5회 이상 작성하시면 쿠폰이 자동으로 지급되고, 다음 돌봄 결제 시 사용하실 수 있어요.</p></details>
+  </div>
+</section>
+
+<!-- 11. 최종 CTA -->
+<section class="final" id="download">
+  <div class="wrap">
+    <h2>오늘 저녁, 마음 편히 퇴근하세요</h2>
+    <p class="lead">지금 신청하면 첫 가입 무료체험 + 돌봄 체크리스트를 바로 드려요.</p>
+    <a href="#" class="btn btn-primary" id="mainDownload" data-pos="final">📲 무료체험 신청하기</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    이웃집 케어 히어로 (학습용 가상 브랜드)<br>
+    상호 · 대표자 · 사업자등록번호 · 주소 · 고객센터 (운영 시 입력)<br>
+    <a href="#">이용약관</a> · <a href="#">개인정보처리방침</a>
+  </div>
+</footer>
+
+<!-- 하단 고정 CTA -->
+<div class="sticky" id="sticky">
+  <div class="wrap">
+    <div class="msg">첫 가입 <span>무료체험</span><br>지금 받으세요</div>
+    <a href="#download" class="btn btn-primary js-cta" data-pos="sticky">신청하기</a>
+  </div>
+</div>
+
+<script>
+/* ===== 설정: 실제 스토어 링크로 교체하세요 ===== */
+var STORE = {
+  ios: "https://apps.apple.com/kr/app/REPLACE_ME",
+  android: "https://play.google.com/store/apps/details?id=REPLACE_ME"
+};
+
+/* ===== 유입 채널(UTM) 별 안내 문구 ===== */
+(function(){
+  var p = new URLSearchParams(location.search);
+  var src = (p.get("utm_source") || "").toLowerCase();
+  var map = {
+    daangn:"🥕 당근 이웃님 전용 혜택", karrot:"🥕 당근 이웃님 전용 혜택",
+    momcafe:"👩‍👧 맘카페 회원님 전용 혜택",
+    albamon:"💼 알바몬에서 오신 분 전용 혜택", albacheonguk:"💼 알바천국에서 오신 분 전용 혜택"
+  };
+  if(map[src]){ var b = document.getElementById("srcBadge"); b.textContent = map[src]; b.style.display = "inline-block"; }
+  try{ sessionStorage.setItem("lp_src", src || "direct"); }catch(e){}
+})();
+
+/* ===== 스토어 링크 (OS 자동 분기) ===== */
+(function(){
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPhone|iPad|iPod/i.test(ua);
+  var main = document.getElementById("mainDownload");
+  main.href = isIOS ? STORE.ios : STORE.android;
+  /* 상단/중간 CTA는 모두 최종 다운로드 섹션으로 이동 (#download) */
+})();
+
+/* ===== 이벤트 트래킹 훅 (GA4/픽셀 연결 지점) ===== */
+function track(name, data){
+  try{
+    if(window.gtag) gtag("event", name, data || {});
+    if(window.fbq) fbq("trackCustom", name, data || {});
+  }catch(e){}
+}
+document.addEventListener("click", function(e){
+  var el = e.target.closest("[data-pos],[data-store],[data-track]");
+  if(!el) return;
+  track("lp_click", { pos: el.dataset.pos || el.dataset.store || el.dataset.track });
+});
+
+/* ===== 체크리스트 ===== */
+(function(){
+  var boxes = document.querySelectorAll(".ck input");
+  var cnt = document.getElementById("ckCount"), bar = document.getElementById("ckBar"), res = document.getElementById("ckResult");
+  function update(){
+    var n = 0; boxes.forEach(function(b){ if(b.checked) n++; });
+    cnt.textContent = n + " / " + boxes.length;
+    bar.style.width = (n / boxes.length * 100) + "%";
+    res.classList.toggle("show", n > 0);
+    if(n === boxes.length) res.textContent = "👏 완벽해요! 준비가 끝났다면 무료체험으로 첫 돌봄을 시작해 보세요.";
+    else if(n >= 3) res.textContent = "👍 거의 다 왔어요! 남은 항목은 히어로가 함께 점검해 드려요.";
+    else res.textContent = "💡 아직 챙길 게 많아요. 걱정 마세요, 전체 체크리스트와 히어로가 도와드려요.";
+    if(n === boxes.length) track("checklist_complete");
+  }
+  boxes.forEach(function(b){ b.addEventListener("change", update); });
+})();
+
+/* ===== 후기 도장 체험 ===== */
+(function(){
+  var n = 0, dots = document.querySelectorAll("#dots i");
+  document.getElementById("stampBtn").addEventListener("click", function(){
+    if(n >= dots.length){ n = 0; dots.forEach(function(d){ d.classList.remove("on"); d.textContent = d.dataset.n; }); }
+    dots.forEach(function(d,i){ d.dataset.n = i+1; });
+    dots[n].classList.add("on"); dots[n].textContent = "✔"; n++;
+    if(n === dots.length) this.textContent = "🎉 쿠폰 지급! 다시 해보기";
+    else this.textContent = "도장 찍어보기 (" + n + "/5)";
+  });
+})();
+
+/* ===== 상단 신청 버튼: 스크롤하면 숨기고 맨 위에서 다시 표시 ===== */
+(function(){
+  var top = document.querySelector(".top");
+  function onScroll(){ top.classList.toggle("scrolled", window.scrollY > 10); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ===== 상단 목차: 현재 위치 강조 ===== */
+(function(){
+  var links = document.querySelectorAll(".index a");
+  var nav = document.querySelector(".index .wrap");
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute("href").slice(1)] = a; });
+  function setOn(id){
+    links.forEach(function(a){ a.classList.remove("on"); });
+    var a = map[id]; if(!a) return;
+    a.classList.add("on");
+    nav.scrollTo({ left: a.offsetLeft - 20, behavior: "smooth" });
+  }
+  function onScroll(){
+    var cur = null, y = window.scrollY + 140;
+    Object.keys(map).forEach(function(id){
+      var el = document.getElementById(id);
+      if(el && el.offsetTop <= y) cur = id;
+    });
+    var dl = document.getElementById("download");
+    if(dl && dl.offsetTop <= y) cur = null;
+    if(cur) setOn(cur); else links.forEach(function(a){ a.classList.remove("on"); });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ===== 하단 고정 CTA: 최종 CTA 영역에서는 숨김 ===== */
+(function(){
+  var s = document.getElementById("sticky"), t = document.getElementById("download");
+  if(!("IntersectionObserver" in window)) return;
+  new IntersectionObserver(function(es){
+    s.style.transform = es[0].isIntersecting ? "translateY(110%)" : "translateY(0)";
+  }).observe(t);
+})();
+</script>
+</body>
+</html>
